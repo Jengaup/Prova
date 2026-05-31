@@ -57,7 +57,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 bg-[#F4E3D0]/15 border border-[#F4E3D0]/25 backdrop-blur-sm text-[#F4E3D0] text-xs font-medium tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8"
+          className="inline-flex flex-wrap justify-center items-center gap-2 bg-[#F4E3D0]/15 border border-[#F4E3D0]/25 backdrop-blur-sm text-[#F4E3D0] text-xs font-medium tracking-[0.1em] md:tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8 max-w-full"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
