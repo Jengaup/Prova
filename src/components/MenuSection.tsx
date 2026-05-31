@@ -30,7 +30,7 @@ const menuItems = [
     name: "Pollo a la Brasa Prova",
     description: "Pollo entero marinado con hierbas criollas, asado en horno de leña. Acompañado de yuca frita y ensalada.",
     price: "$16.50",
-    image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=80",
     tag: "Favorito",
     tagColor: "bg-[#4a7c59]",
   },
