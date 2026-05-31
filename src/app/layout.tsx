@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Prova Creole Grill — Gastronomía Criolla e Internacional",
@@ -19,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="es" className={`${playfair.variable} ${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[#fdf6ee]">{children}</body>
     </html>
   );
 }
