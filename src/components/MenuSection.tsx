@@ -103,27 +103,27 @@ export default function MenuSection() {
   const filtered = menuItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="menu" className="py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
           <span
-            className="text-[#777F67] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block"
+            className="text-[#777F67] text-xs font-semibold tracking-[0.3em] uppercase mb-4 block"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Nuestra Carta
           </span>
-          <h2 className="text-[#2c2c2c] text-4xl md:text-5xl font-bold font-display mb-4">
+          <h2 className="text-[#2c2c2c] text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-5">
             Sabores que enamoran
           </h2>
           <p
-            className="text-[#6b6b6b] text-lg max-w-xl mx-auto"
+            className="text-[#6b6b6b] text-lg max-w-lg mx-auto leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Ingredientes frescos, recetas con alma y presentaciones que conquistan antes del primer bocado.
@@ -136,16 +136,16 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-14"
         >
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeCategory === cat
-                  ? "bg-[#777F67] text-[#F4E3D0] shadow-md"
-                  : "bg-[#F4E3D0]/60 text-[#6b6b6b] hover:bg-[#F4E3D0]"
+                  ? "bg-[#777F67] text-[#F4E3D0] shadow-md scale-105"
+                  : "bg-[#F4E3D0]/70 text-[#5a5a5a] hover:bg-[#F4E3D0] hover:scale-105"
               }`}
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
@@ -162,7 +162,7 @@ export default function MenuSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {filtered.map((item, i) => (
               <motion.div

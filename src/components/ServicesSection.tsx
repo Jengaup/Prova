@@ -86,31 +86,31 @@ const cardVariant: Variants = {
 
 export default function ServicesSection() {
   return (
-    <section id="nosotros" className="py-24 bg-[#fdf6ee]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="nosotros" className="py-28 bg-[#fdf6ee]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <span
-            className="text-[#777F67] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block"
+            className="text-[#777F67] text-xs font-semibold tracking-[0.3em] uppercase mb-4 block"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Lo que ofrecemos
           </span>
-          <h2 className="text-[#2c2c2c] text-4xl md:text-5xl font-bold font-display mb-4">
+          <h2 className="text-[#2c2c2c] text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-5">
             Una experiencia completa
           </h2>
           <p
-            className="text-[#6b6b6b] text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-[#6b6b6b] text-lg max-w-xl mx-auto leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Desde el primer trago hasta el último bocado de postre, en Prova diseñamos
-            cada momento de tu visita con dedicación y pasión.
+            cada momento con dedicación y pasión.
           </p>
         </motion.div>
 
@@ -120,15 +120,15 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={cardVariant}
-              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-[#F4E3D0]/60"
+              className="group bg-white rounded-3xl p-9 shadow-sm hover:shadow-lg transition-all duration-300 border border-[#F4E3D0]/50 hover:-translate-y-1"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#777F67]/10 flex items-center justify-center text-[#777F67] mb-5 group-hover:bg-[#777F67] group-hover:text-[#F4E3D0] transition-colors duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-[#777F67]/10 flex items-center justify-center text-[#777F67] mb-6 group-hover:bg-[#777F67] group-hover:text-[#F4E3D0] transition-colors duration-300">
                 {service.icon}
               </div>
               <h3
