@@ -46,6 +46,13 @@ const testimonials = [
   },
 ];
 
+const stats = [
+  { value: "4.9 / 5", label: "Calificación promedio" },
+  { value: "1,200+", label: "Reseñas positivas" },
+  { value: "98%", label: "Clientes satisfechos" },
+  { value: "#1", label: "Restaurante criollo de la zona" },
+];
+
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
 
@@ -54,87 +61,76 @@ export default function TestimonialsSection() {
 
   return (
     <section id="testimonios" className="py-24 bg-[#fdf6ee] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" as const }}
+          className="text-center mb-14"
         >
-          <span
-            className="text-[#777F67] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
+          <span className="font-[family-name:var(--font-inter)] text-[#777F67] text-[10px] font-semibold tracking-[0.35em] uppercase mb-4 block">
             Testimonios
           </span>
-          <h2 className="text-[#2c2c2c] text-4xl md:text-5xl font-bold font-display mb-4">
+          <h2 className="font-[family-name:var(--font-playfair)] text-[#2c2c2c] text-4xl md:text-5xl font-bold mb-4 leading-tight">
             Lo que dicen nuestros comensales
           </h2>
-          <p
-            className="text-[#6b6b6b] text-lg max-w-xl mx-auto"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-px bg-[#777F67]/30" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#777F67]/40" />
+            <div className="w-10 h-px bg-[#777F67]/30" />
+          </div>
+          <p className="font-[family-name:var(--font-inter)] text-[#6b6b6b] text-base max-w-lg mx-auto leading-relaxed">
             Cada reseña es el reflejo del compromiso de nuestro equipo con la excelencia y el sabor.
           </p>
         </motion.div>
 
         {/* Carousel */}
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-3xl mx-auto mb-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 35 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-[#F4E3D0]/60 text-center"
+              exit={{ opacity: 0, x: -35 }}
+              transition={{ duration: 0.38, ease: "easeOut" as const }}
+              className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-[#F4E3D0]/70 text-center"
             >
               {/* Stars */}
               <div className="flex justify-center gap-1 mb-6">
                 {[...Array(testimonials[current].rating)].map((_, i) => (
-                  <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#777F67">
+                  <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#777F67">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 ))}
               </div>
 
-              {/* Quote */}
-              <svg
-                className="mx-auto mb-4 text-[#777F67]/20"
-                width="40"
-                height="32"
-                viewBox="0 0 40 32"
-                fill="currentColor"
-              >
-                <path d="M0 32V20.8C0 14.4 2.6 8.8 7.8 4 11 1.3 14.7 0 18.7 0v5.3c-2.7 0-5 1-7 3-2 2-3 4.3-3 7h5.3V32H0zm21.3 0V20.8c0-6.4 2.6-12 7.8-16.8C32.3 1.3 36 0 40 0v5.3c-2.7 0-5 1-7 3-2 2-3 4.3-3 7H35.3V32H21.3z" />
-              </svg>
+              {/* Decorative quote mark */}
+              <div className="text-[#777F67]/15 font-[family-name:var(--font-playfair)] text-8xl font-bold leading-none mb-0 -mb-4 select-none" aria-hidden="true">
+                &ldquo;
+              </div>
 
-              <p
-                className="text-[#2c2c2c] text-lg leading-relaxed mb-8 italic"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                &ldquo;{testimonials[current].text}&rdquo;
+              {/* Quote text */}
+              <p className="font-[family-name:var(--font-playfair)] text-[#2c2c2c] text-lg md:text-xl leading-relaxed mb-8 italic">
+                {testimonials[current].text}
               </p>
+
+              {/* Divider */}
+              <div className="w-12 h-px bg-[#777F67]/25 mx-auto mb-6" />
 
               {/* Author */}
               <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#777F67] flex items-center justify-center text-[#F4E3D0] font-bold text-sm">
+                <div className="w-11 h-11 rounded-full bg-[#777F67] flex items-center justify-center text-[#F4E3D0] font-[family-name:var(--font-inter)] font-bold text-xs tracking-wide shadow-sm">
                   {testimonials[current].avatar}
                 </div>
                 <div className="text-left">
-                  <p
-                    className="text-[#2c2c2c] font-semibold text-base"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
+                  <p className="font-[family-name:var(--font-inter)] text-[#2c2c2c] font-semibold text-sm">
                     {testimonials[current].name}
                   </p>
-                  <p
-                    className="text-[#6b6b6b] text-sm"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {testimonials[current].role} · {testimonials[current].date}
+                  <p className="font-[family-name:var(--font-inter)] text-[#8a8a8a] text-xs mt-0.5">
+                    {testimonials[current].role} &middot; {testimonials[current].date}
                   </p>
                 </div>
               </div>
@@ -142,13 +138,13 @@ export default function TestimonialsSection() {
           </AnimatePresence>
 
           {/* Controls */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center justify-center gap-4 mt-7">
             <button
               onClick={prev}
-              className="w-11 h-11 rounded-full border border-[#777F67]/30 flex items-center justify-center text-[#777F67] hover:bg-[#777F67] hover:text-[#F4E3D0] transition-colors duration-200 cursor-pointer"
+              className="w-10 h-10 rounded-full border border-[#777F67]/30 flex items-center justify-center text-[#777F67] hover:bg-[#777F67] hover:text-[#F4E3D0] hover:border-[#777F67] transition-all duration-200 cursor-pointer"
               aria-label="Anterior"
             >
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H3m0 0 4-4m-4 4 4 4" />
               </svg>
             </button>
@@ -159,8 +155,10 @@ export default function TestimonialsSection() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`rounded-full transition-all duration-200 cursor-pointer ${
-                    i === current ? "w-6 h-2.5 bg-[#777F67]" : "w-2.5 h-2.5 bg-[#777F67]/25 hover:bg-[#777F67]/50"
+                  className={`rounded-full transition-all duration-250 cursor-pointer ${
+                    i === current
+                      ? "w-6 h-2 bg-[#777F67]"
+                      : "w-2 h-2 bg-[#777F67]/22 hover:bg-[#777F67]/45"
                   }`}
                   aria-label={`Ir al testimonio ${i + 1}`}
                 />
@@ -169,41 +167,33 @@ export default function TestimonialsSection() {
 
             <button
               onClick={next}
-              className="w-11 h-11 rounded-full border border-[#777F67]/30 flex items-center justify-center text-[#777F67] hover:bg-[#777F67] hover:text-[#F4E3D0] transition-colors duration-200 cursor-pointer"
+              className="w-10 h-10 rounded-full border border-[#777F67]/30 flex items-center justify-center text-[#777F67] hover:bg-[#777F67] hover:text-[#F4E3D0] hover:border-[#777F67] transition-all duration-200 cursor-pointer"
               aria-label="Siguiente"
             >
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h12m0 0-4-4m4 4-4 4" />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Background stats strip */}
+        {/* Stats strip */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" as const }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
         >
-          {[
-            { value: "4.9 / 5", label: "Calificación promedio" },
-            { value: "1,200+", label: "Reseñas positivas" },
-            { value: "98%", label: "Clientes satisfechos" },
-            { value: "#1", label: "Restaurante criollo de la zona" },
-          ].map((stat) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-white rounded-2xl p-6 text-center border border-[#F4E3D0]/60 shadow-sm"
+              className="bg-white rounded-2xl p-6 text-center border border-[#F4E3D0]/70 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <p className="text-[#777F67] font-display font-bold text-2xl md:text-3xl mb-1">
+              <p className="font-[family-name:var(--font-playfair)] text-[#777F67] font-bold text-2xl md:text-3xl mb-1.5 leading-tight">
                 {stat.value}
               </p>
-              <p
-                className="text-[#6b6b6b] text-xs"
-                style={{ fontFamily: "'Inter', sans-serif" }}
-              >
+              <p className="font-[family-name:var(--font-inter)] text-[#8a8a8a] text-xs leading-snug">
                 {stat.label}
               </p>
             </div>
